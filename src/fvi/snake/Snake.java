@@ -17,10 +17,11 @@ class Snake extends JPanel implements ActionListener {
     Timer t = new Timer(1000/SPEED,this);
 
     public Snake(){
+        t.start();
+    }
 
-      }
-     public void paint(Graphics  g){
-      g.setColor(color(5,50,10));
+    public void paint(Graphics  g){
+         g.setColor(color(5,50,10));
          g.fillRect(0,0,SCALE*WIDTH,SCALE*HEIGHT);
          g.setColor(color(255,216,0));
 

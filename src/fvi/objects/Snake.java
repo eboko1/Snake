@@ -64,6 +64,16 @@ class Snake extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         s.move();
+        if ((s.snakeX[0]==a.posX) & (s.snakeY[0]==a.posY)){
+            a.setRandomPosition();
+            s.length++;
+        }
+        for (int k=1;k<s.length;k++){
+        if ((s.snakeX[k]==a.posX) & (s.snakeY[k]==a.posY)){
+            a.setRandomPosition();
+            s.length++;
+          }
+        }
         repaint();
     }
 

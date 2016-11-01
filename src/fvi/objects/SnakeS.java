@@ -5,7 +5,7 @@ package fvi.objects;
  */
 public class SnakeS {
  public int direction =0;
-    public int length=2;
+    public int length=10;
 
     public  int snakeX[]= new int[100];
     public  int snakeY[]= new int[100];
@@ -26,5 +26,11 @@ public class SnakeS {
         if (direction==2) snakeX[0]--;
         if (direction==3) snakeY[0]--;
 
+
+     // delete  length Snake on 2
+        for (int d=length-1; d>0; d--){
+            if ((snakeX[0]==snakeX[d])&(snakeY[0]==snakeY[d])) length=d-2;
+        }
+        if (length<2) length=2;
     }
 }

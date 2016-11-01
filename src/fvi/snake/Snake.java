@@ -52,7 +52,7 @@ class Snake extends JPanel implements ActionListener {
         JFrame f= new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setResizable(false);
-        f.setSize(SCALE*WIDTH+7,SCALE*HEIGHT+37);
+        f.setSize(SCALE*WIDTH+7,SCALE*HEIGHT+30);
         f.setLocationRelativeTo(null);// window in the center
         f.add(new Snake());
         f.setVisible(true);
@@ -68,10 +68,10 @@ class Snake extends JPanel implements ActionListener {
     private class Keyboard extends KeyAdapter{
         public void keyPressed(KeyEvent kE){
             int key = kE.getKeyCode();
-            if (key == KeyEvent.VK_RIGHT) s.direction=0;
-            if (key == KeyEvent.VK_DOWN) s.direction=1;
-            if (key == KeyEvent.VK_LEFT) s.direction=2;
-            if (key == KeyEvent.VK_UP) s.direction=3;
+            if ((key == KeyEvent.VK_RIGHT) & s.direction!=2) s.direction=0;
+            if ((key == KeyEvent.VK_DOWN)& s.direction!=3) s.direction=1;
+            if ((key == KeyEvent.VK_LEFT)& s.direction!=0) s.direction=2;
+            if ((key == KeyEvent.VK_UP) & s.direction!=1) s.direction=3;
         }
     }
 }

@@ -54,7 +54,7 @@ class Snake extends JPanel implements ActionListener {
         JFrame f= new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setResizable(false);
-        f.setSize(SCALE*WIDTH+7,SCALE*HEIGHT+30);
+        f.setSize(SCALE*WIDTH+7,SCALE*HEIGHT+29);
         f.setLocationRelativeTo(null);// window in the center
         f.add(new Snake());
         f.setVisible(true);
@@ -68,11 +68,12 @@ class Snake extends JPanel implements ActionListener {
             a.setRandomPosition();
             s.length++;
         }
+
+        // delete apple with length snake
         for (int k=1;k<s.length;k++){
         if ((s.snakeX[k]==a.posX) & (s.snakeY[k]==a.posY)){
             a.setRandomPosition();
-            s.length++;
-          }
+                   }
         }
         repaint();
     }

@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 class Snake extends JPanel implements ActionListener {
      public  static  final int SCALE=32;
@@ -13,11 +15,14 @@ class Snake extends JPanel implements ActionListener {
      public  static  final int HEIGHT=20;
     public  static  final int SPEED=5;
 
-    SnakeS s = new SnakeS(10,10,9,10);
+    SnakeS s = new SnakeS(10,10,9,10);// class SnakeS
+
     Timer t = new Timer(1000/SPEED,this);
 
     public Snake(){
         t.start();
+        addKeyListener(new Keyboard());
+        setFocusable(true);
     }
 
     public void paint(Graphics  g){
@@ -58,5 +63,15 @@ class Snake extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         s.move();
         repaint();
+    }
+
+    private class Keyboard extends KeyAdapter{
+        public void keyPressed(KeyEvent kE){
+            int key = kE.getKeyCode();
+            if (key == KeyEvent.VK_RIGHT) s.direction=0;
+            if (key == KeyEvent.VK_DOWN) s.direction=1;
+            if (key == KeyEvent.VK_LEFT) s.direction=2;
+            if (key == KeyEvent.VK_UP) s.direction=3;
+        }
     }
 }

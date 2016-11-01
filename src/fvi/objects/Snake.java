@@ -1,6 +1,5 @@
-package fvi.snake;
+package fvi.objects;
 
-import fvi.objects.SnakeS;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,8 +12,9 @@ class Snake extends JPanel implements ActionListener {
      public  static  final int SCALE=32;
      public  static  final int WIDTH=20;
      public  static  final int HEIGHT=20;
-    public  static  final int SPEED=5;
+     public  static  final int SPEED=5;
 
+    Apple a= new Apple((int)(Math.random()*WIDTH),(int)(Math.random()*HEIGHT));
     SnakeS s = new SnakeS(10,10,9,10);// class SnakeS
 
     Timer t = new Timer(1000/SPEED,this);
@@ -39,8 +39,10 @@ class Snake extends JPanel implements ActionListener {
          }
          for (int d=0; d<s.length;d++){
              g.setColor(color(20,0,150));
-            g.fillRect(s.snakeX[d]*SCALE+1,s.snakeY[d]*SCALE+1,SCALE-1, SCALE-1);
+              g.fillRect(s.snakeX[d]*SCALE+1,s.snakeY[d]*SCALE+1,SCALE-1, SCALE-1);
          }
+         g.setColor(color(255,0,0));
+         g.fillRect(a.posX*SCALE+1,a.posY*SCALE+1, SCALE-1,SCALE-1);
      }
     public Color color(int red,int green, int blue){
         return new Color(red,green,blue);

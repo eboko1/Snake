@@ -12,7 +12,7 @@ class Snake extends JPanel implements ActionListener {
      public  static  final int SCALE=32;
      public  static  final int WIDTH=20;
      public  static  final int HEIGHT=20;
-     public  static  final int SPEED=5;
+     public  static  final int SPEED=4;
 
     Apple a= new Apple((int)(Math.random()*WIDTH),(int)(Math.random()*HEIGHT));
     SnakeS s = new SnakeS(10,10,9,10);// class SnakeS
@@ -26,10 +26,13 @@ class Snake extends JPanel implements ActionListener {
     }
 
     public void paint(Graphics  g){
-         g.setColor(color(5,50,10));
+         g.setColor(color(15,80,10));
          g.fillRect(0,0,SCALE*WIDTH,SCALE*HEIGHT);
-         g.setColor(color(255,216,0));
+         g.setColor(color(255,216,0));//255,216,0
 
+        Font font = new Font("Arial",Font.BOLD,20);
+        g.setFont(font);
+        g.drawString("Францух ", 540,30);
          for(int xx=0; xx<=WIDTH*SCALE; xx+=SCALE){
             g.drawLine(xx,0,xx,WIDTH*SCALE);
          }
@@ -38,10 +41,10 @@ class Snake extends JPanel implements ActionListener {
              g.drawLine(0,yy,HEIGHT*SCALE,yy);
          }
          for (int d=0; d<s.length;d++){
-             g.setColor(color(20,0,150));
+             g.setColor(color(200,0,150));
               g.fillRect(s.snakeX[d]*SCALE+1,s.snakeY[d]*SCALE+1,SCALE-1, SCALE-1);
          }
-         g.setColor(color(255,0,0));
+         g.setColor(color(255,0,0));//color apple
          g.fillRect(a.posX*SCALE+1,a.posY*SCALE+1, SCALE-1,SCALE-1);
      }
     public Color color(int red,int green, int blue){
@@ -58,6 +61,7 @@ class Snake extends JPanel implements ActionListener {
         f.setLocationRelativeTo(null);// window in the center
         f.add(new Snake());
         f.setVisible(true);
+
 
     }
 

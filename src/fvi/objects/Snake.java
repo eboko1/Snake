@@ -28,11 +28,9 @@ class Snake extends JPanel implements ActionListener {
     public void paint(Graphics  g){
          g.setColor(color(15,80,10));
          g.fillRect(0,0,SCALE*WIDTH,SCALE*HEIGHT);
-         g.setColor(color(255,216,0));//255,216,0
+         g.setColor(color(15,80,10));//255,216,0
 
-        Font font = new Font("Arial",Font.BOLD,20);
-        g.setFont(font);
-        g.drawString("Францух ", 540,30);
+
          for(int xx=0; xx<=WIDTH*SCALE; xx+=SCALE){
             g.drawLine(xx,0,xx,WIDTH*SCALE);
          }
@@ -41,7 +39,7 @@ class Snake extends JPanel implements ActionListener {
              g.drawLine(0,yy,HEIGHT*SCALE,yy);
          }
          for (int d=0; d<s.length;d++){
-             g.setColor(color(200,0,150));
+             g.setColor(color(255,216,0));//color snake
               g.fillRect(s.snakeX[d]*SCALE+1,s.snakeY[d]*SCALE+1,SCALE-1, SCALE-1);
          }
          g.setColor(color(255,0,0));//color apple
@@ -53,8 +51,7 @@ class Snake extends JPanel implements ActionListener {
     }
 
     public static void main (String[] arg){
-
-        JFrame f= new JFrame();
+        JFrame f= new JFrame("Гру створено Францух В.І. ");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setResizable(false);
         f.setSize(SCALE*WIDTH+7,SCALE*HEIGHT+29);

@@ -51,7 +51,7 @@ class Snake extends JPanel implements ActionListener {
     }
 
     public static void main (String[] arg){
-        JFrame f= new JFrame("Гру створено Францух В.І. ");
+        JFrame f= new JFrame("Сreated by Frantsuh");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setResizable(false);
         f.setSize(SCALE*WIDTH+7,SCALE*HEIGHT+29);

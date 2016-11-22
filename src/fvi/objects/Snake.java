@@ -39,7 +39,7 @@ class Snake extends JPanel implements ActionListener {
              g.drawLine(0,yy,HEIGHT*SCALE,yy);
          }
          for (int d=0; d<s.length;d++){
-             g.setColor(color(255,216,0));//color snake
+             g.setColor(color(255,216,10));//color snake
               g.fillRect(s.snakeX[d]*SCALE+1,s.snakeY[d]*SCALE+1,SCALE-1, SCALE-1);
          }
          g.setColor(color(240,10,10));//color apple
